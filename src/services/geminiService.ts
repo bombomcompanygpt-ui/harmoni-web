@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AIQuestion } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: impor.env.VITE_GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.env.VITE_GEMINI_API_KEY });
 
 export async function generateDynamicQuestion(topic: string): Promise<AIQuestion> {
   const prompt = `Kamu adalah Soci, asisten ahli sosiologi yang cerdas, inspiratif, dan sangat ramah. 
