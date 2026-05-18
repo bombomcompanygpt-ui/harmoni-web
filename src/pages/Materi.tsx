@@ -15,10 +15,19 @@ const MATERI_LIST = [
     category: 'Dasar',
     duration: '15m',
     icon: <Users size={28} />,
-    color: 'bg-blue-500',
-    content: 'Harmoni adalah keselarasan atau keserasian. Harmoni sosial adalah kondisi di mana individu dalam masyarakat hidup seiring dan sejalan.',
-    theory: 'Herbert Spencer membagi dua jenis solidaritas: Mekanik (masyarakat pra-industri, homogen) dan Organik (masyarakat modern, heterogen, saling ketergantungan).',
-    indicators: ['Adanya solidaritas dan kekompakan', 'Integrasi nilai & norma yang kuat', 'Tercapainya konsensus kolektif']
+    color: 'bg-blue-600',
+    content: 'Harmoni adalah keindahan, keserasian, dan keteraturan yang tercipta melalui penerimaan perbedaan dan kerja sama yang saling membangun.',
+    theory: 'Emile Durkheim mendefinisikan harmoni sebagai hasil integrasi sosial yang kuat melalui nilai dan norma yang sama.',
+    experts: [
+      { name: 'Max Weber', opinion: 'Kondisi yang tercipta ketika relasi antar individu diberatkan pada kemampuan memahami dan menghargai perbedaan status, kekuasaan, dan budaya.' },
+      { name: 'Talcott Parsons', opinion: 'Keadaan di mana seluruh sistem sosial berfungsi dengan baik dan setiap bagian masyarakat berkontribusi pada stabilitas menyeluruh.' },
+      { name: 'Robert Putnam', opinion: 'Hasil dari modal sosial yang dipengaruhi oleh komponen kepercayaan, norma, dan jaringan yang mempererat hubungan.' }
+    ],
+    solidaritas: [
+      { t: "Mekanik", d: "Masyarakat pra-industri, homogen, pembagian kerja minimal, didominasi kesadaran kolektif dan adat istiadat." },
+      { t: "Organik", d: "Masyarakat modern, heterogen, pembagian kerja kompleks, saling ketergantungan antar peran yang berbeda." }
+    ],
+    indicators: ['Kerja sama antar elemen', 'Penerimaan keragaman', 'Stabilitas sistem sosial']
   },
   {
     id: 'integrasi-sosial',
@@ -26,14 +35,37 @@ const MATERI_LIST = [
     category: 'Proses',
     duration: '30m',
     icon: <Target size={28} />,
-    color: 'bg-indigo-500',
-    content: 'Proses penyesuaian unsur-unsur yang berbeda dalam masyarakat sehingga menjadi satu kesatuan yang utuh.',
-    types: [
-      { t: "Normatif", d: "Berdasarkan norma-norma yang berlaku (contoh: Bhinneka Tunggal Ika)." },
-      { t: "Fungsional", d: "Berdasarkan fungsi-fungsi tertentu dalam masyarakat yang saling melengkapi." },
-      { t: "Koersif", d: "Dilakukan dengan kekuasaan atau paksaan oleh pihak berwenang." }
+    color: 'bg-indigo-600',
+    content: 'Pembauran berbagai kelompok sosial hingga menjadi satu kesatuan yang utuh, mengakui perbedaan tanpa menghilangkan fungsi pentingnya.',
+    experts: [
+      { name: 'Abu Ahmadi', opinion: 'Melibatkan kerja sama seluruh anggota masyarakat dari berbagai tingkat (individu, keluarga, lembaga).' },
+      { name: 'Ogburn & Nimkoff', opinion: 'Berhasil jika anggota merasa kebutuhan terpenuhi, ada konsensus norma, dan norma tersebut bertahan lama.' }
     ],
-    accommodation: ["Koersi (Paksaan)", "Kompromi", "Mediasi", "Konsiliasi", "Adjudikasi"]
+    factors: ['Homogenitas kelompok', 'Besar kecilnya kelompok', 'Mobilitas geografis', 'Efektivitas komunikasi'],
+    types: [
+      { t: "Normatif", d: "Dipersatukan oleh norma atau semboyan (contoh: Bhinneka Tunggal Ika)." },
+      { t: "Fungsional", d: "Terbentuk karena fungsi tertentu yang saling melengkapi (contoh: Kerja sama antar daerah penghasil bahan baku dan pengolah)." },
+      { t: "Koersif", d: "Melibatkan tekanan atau kekerasan oleh penguasa (contoh: Penggusuran PKL)." }
+    ],
+    ways: ["Akulturasi (Penyatuan tanpa hapus ciri khas)", "Asimilasi (Peleburan menjadi budaya baru)"]
+  },
+  {
+    id: 'akomodasi-sosial',
+    title: 'Bentuk Akomodasi',
+    category: 'Relasi',
+    duration: '20m',
+    icon: <HeartHandshake size={28} />,
+    color: 'bg-rose-600',
+    content: 'Proses meredakan pertentangan untuk mencapai keadaan stabil tanpa menghancurkan pihak lawan.',
+    forms: [
+      { t: "Koersi", d: "Paksaan fisik atau psikologis." },
+      { t: "Kompromi", d: "Saling mengurangi tuntutan." },
+      { t: "Arbitrase", d: "Melibatkan pihak ketiga dengan kedudukan lebih tinggi." },
+      { t: "Mediasi", d: "Pihak ketiga hanya sebagai penasihat." },
+      { t: "Konsiliasi", d: "Mempertemukan keinginan kedua belah pihak." },
+      { t: "Stalemate", d: "Jalan buntu ketika kekuatan seimbang." },
+      { t: "Adjudikasi", d: "Penyelesaian melalui pengadilan." }
+    ]
   },
   {
     id: 'kesetaraan-sosial',
@@ -41,19 +73,25 @@ const MATERI_LIST = [
     category: 'Prinsip',
     duration: '20m',
     icon: <Scale size={28} />,
-    color: 'bg-emerald-500',
-    content: 'Prinsip persamaan martabat sebagai manusia yang memiliki hak-hak yang sama.',
-    types: [
-      { t: "Kesempatan", d: "Setiap orang memiliki akses yang sama terhadap posisi sosial." },
-      { t: "Sejak Awal", d: "Kompetisi yang adil dimulai dari titik start yang sama bagi setiap individu." },
-      { t: "Hasil", d: "Upaya agar setiap orang menikmati standar hidup yang memadai." }
+    color: 'bg-emerald-600',
+    content: 'Kondisi di mana individu atau kelompok tidak mendapatkan keuntungan atau kerugian langsung akibat karakteristik tertentu.',
+    categories: [
+      { t: "Hukum", d: "Semua warga adalah subjek hukum yang universal." },
+      { t: "Politik", d: "Hak yang sama untuk berpartisipasi dalam pembuatan undang-undang." },
+      { t: "Sosial", d: "Kesetaraan kedudukan tanpa ancaman dominasi." },
+      { t: "Ekonomi", d: "Pembagian sumber daya yang adil untuk mencegah kesenjangan." },
+      { t: "Moral", d: "Memperlakukan kepentingan moral setiap anggota secara setara." }
     ],
     law: [
       { no: "Ayat (1)", isi: "Segala warga negara bersamaan kedudukannya di dalam hukum dan pemerintahan." },
       { no: "Ayat (2)", isi: "Tiap-tiap warga negara berhak atas pekerjaan dan penghidupan yang layak bagi kemanusiaan." },
       { no: "Ayat (3)", isi: "Setiap warga negara berhak dan wajib ikut serta dalam upaya pembelaan negara." }
     ],
-    closingNote: "Penerapan prinsip kesetaraan sangat krusial untuk menghindari diskriminasi, meminimalisir konflik, dan menciptakan harmoni dalam kehidupan bernegara."
+    concepts: [
+      { t: "Kesempatan", d: "Akses terbuka berdasar kriteria universal, bukan kelahiran." },
+      { t: "Sejak Awal", d: "Kompetisi adil yang dimulai dari garis start yang sama." },
+      { t: "Hasil", d: "Standar hidup dan peluang yang sama bagi setiap orang." }
+    ]
   },
   {
     id: 'inklusi-sosial',
@@ -61,14 +99,15 @@ const MATERI_LIST = [
     category: 'Prinsip',
     duration: '25m',
     icon: <Zap size={28} />,
-    color: 'bg-amber-500',
-    content: 'Upaya menempatkan martabat dan kemandirian individu sebagai pusat untuk menciptakan lingkungan yang terbuka bagi siapa saja.',
-    characteristics: [
-      { t: "Menciptakan Tatanan", d: "Proses bagi semua orang agar tidak ada lagi yang terpinggirkan." },
-      { t: "Peningkatan Partisipasi", d: "Memberdayakan masyarakat yang kurang beruntung." },
-      { t: "Akses Kesempatan", d: "Menjamin setiap orang memiliki hak dan sumber daya yang sama." }
-    ],
-    inclusiveMindset: ["Kesadaran akan kemajemukan", "Sikap jujur & akal sehat", "Kerja sama antar warga", "Kedewasaan bermasyarakat"]
+    color: 'bg-amber-600',
+    content: 'Proses meningkatkan partisipasi masyarakat, terutama bagi mereka yang kurang beruntung atau marginal.',
+    mindset: ["Kesadaran kemajemukan", "Sikap jujur & akal sehat", "Kerja sama warga", "Kedewasaan bermasyarakat"],
+    examples: [
+      { t: "Keluarga", d: "Menghargai pendapat semua anggota tanpa memandang usia." },
+      { t: "Sekolah", d: "Siswa difabel mendapatkan perlakuan dan akses yang sama." },
+      { t: "Masyarakat", d: "Tidak menutup akses jalan saat perayaan hari raya agama tertentu." },
+      { t: "Ekonomi", d: "Membuka akses sumber daya bagi wanita dan kaum difabel." }
+    ]
   },
   {
     id: 'kohesi-sosial',
@@ -76,70 +115,81 @@ const MATERI_LIST = [
     category: 'Relasi',
     duration: '20m',
     icon: <Layers size={28} />,
-    color: 'bg-rose-500',
-    content: 'Kekuatan pengikat masyarakat sehingga mereka memiliki rasa kepemilikan dan saling percaya.',
+    color: 'bg-teal-600',
+    content: 'Kekuatan yang mengikat masyarakat untuk menghidupi persatuan, solidaritas, dan kerukunan.',
     components: [
-      { label: "Potensi Kelompok", desc: "Besarnya pengaruh kelompok terhadap perilaku individu." },
-      { label: "Motif Keanggotaan", desc: "Besar kecilnya keinginan seseorang untuk bergabung dalam kelompok." }
+      { label: "Potensi Kelompok", desc: "Kemampuan kelompok mempengaruhi individu." },
+      { label: "Motif Keanggotaan", desc: "Dasar alasan seseorang bergabung." },
+      { label: "Harapan", desc: "Apa yang ingin dicapai dalam kelompok." },
+      { label: "Penilaian Hasil", desc: "Evaluasi terhadap manfaat yang didapat." }
     ],
-    urgensi: "Semua pihak perlu menuangkan ide dan tindakan nyata untuk menciptakan kepuasan kolektif.",
-    contoh: ["PPI Luar Negeri", "Arisan Warga"],
-    kesimpulan: "Kohesi sosial terbentuk oleh kesamaan nilai, tantangan, dan kesempatan yang setara."
-  },
-  {
-    id: 'sikap-mental',
-    title: 'Sikap Mental Utama',
-    category: 'Mindset',
-    duration: '25m',
-    icon: <ShieldCheck size={28} />,
-    color: 'bg-cyan-500',
-    content: '9 Sikap mental sebagai dasar utama membangun harmoni dalam masyarakat heterogen.',
-    poin: [
-      { t: "1. Menyikapi perbedaan secara positif", d: "Perbedaan adalah kekayaan sosial yang meningkatkan solidaritas." },
-      { t: "2. Memiliki sikap akomodatif", d: "Sikap menerima perbedaan dan mengurangi ketegangan." },
-      { t: "3. Berjiwa heterogen", d: "Mempersatukan hubungan meskipun ada perbedaan." }
+    experts: [
+      { name: 'Emile Durkheim', opinion: 'Tercipta karena adanya nilai, tantangan, dan kesempatan yang setara.' },
+      { name: 'Harpham et al.', opinion: 'Terdiri dari kebersamaan, kepercayaan sosial, dan kerja sama timbal balik.' }
     ]
   },
   {
-    id: 'apa-yang-dilakukan',
+    id: 'sikap-mental',
+    title: '9 Sikap Mental Utama',
+    category: 'Mindset',
+    duration: '25m',
+    icon: <ShieldCheck size={28} />,
+    color: 'bg-cyan-600',
+    content: 'Fondasi sikap dalam membangun harmoni di tengah masyarakat heterogen.',
+    points: [
+      "1. Menyikapi perbedaan secara positif sebagai kekayaan.",
+      "2. Memiliki sikap akomodatif untuk mengurangi ketegangan.",
+      "3. Berjiwa heterogen dan menghargai HAM.",
+      "4. Berkomitmen terhadap kesepakatan bersama.",
+      "5. Berempati pada penderitaan orang lain.",
+      "6. Peduli pada orang lain (aksi menolong).",
+      "7. Menjaga kelestarian lingkungan hidup.",
+      "8. Menjaga penegakan hukum yang tegas.",
+      "9. Mengutamakan transparansi informasi."
+    ]
+  },
+  {
+    id: 'aksi-individu',
     title: 'Aksi Nyata Individu',
     category: 'Upaya',
     duration: '30m',
     icon: <Lightbulb size={28} />,
-    color: 'bg-violet-500',
-    content: 'Upaya nyata menciptakan harmoni sosial pada tingkat individu dan institusi.',
-    individu: {
-      intro: 'Upaya menciptakan harmoni sosial dapat dilakukan pada tingkat pribadi dan lembaga sosial.',
-      poin: [
-        { t: "Empati", d: "Memahami perasaan orang lain." },
-        { t: "Persahabatan", d: "Membentuk kelompok positif." }
-      ]
-    }
+    color: 'bg-violet-600',
+    content: 'Upaya personal untuk mendorong harmoni sosial (Manisha Sharma, 2015).',
+    actions: [
+      { t: "Mengembangkan empati", d: "Membayangkan diri di posisi orang lain untuk mencegah kejahatan." },
+      { t: "Membangun persahabatan", d: "Sosialisasi kuat antar individu dengan tujuan sama." },
+      { t: "Saling menguatkan", d: "Menggunakan bakat masing-masing untuk menutupi kekurangan teman." },
+      { t: "Membangun persekutuan", d: "Mendukung lingkungan sosial yang sehat agar kebutuhan terpenuhi." },
+      { t: "Menjembatani perbedaan", d: "Sadar bahwa masyarakat adalah heterogen dan butuh toleransi." }
+    ]
   },
   {
-    id: 'peran-membangun',
-    title: 'Agen Perubahan',
+    id: 'agen-perubahan',
+    title: 'Peran Agen Perubahan',
     category: 'Peran',
     duration: '35m',
     icon: <GraduationCap size={28} />,
     color: 'bg-orange-600',
-    content: 'Menyebarkan informasi, diskusi, dan kolaborasi nyata sebagai agen perubahan.',
-    sections: [
-      { title: "Informasi", content: "Melalui penyebaran informasi secara langsung maupun media sosial." },
-      { title: "Dialog", content: "Membuka komunikasi dua arah agar pemahaman bersama tercapai." }
+    content: 'Bagaimana masyarakat dapat berpartisipasi aktif mendorong harmoni.',
+    roles: [
+      { t: "Menyebarkan Informasi", d: "Melalui kampanye positif dan media sosial untuk edukasi harmoni." },
+      { t: "Diskusi & Dialog", d: "Membuka komunikasi dua arah (public hearing) untuk menghindari salah paham." },
+      { t: "Kerja sama & Kolaborasi", d: "Melalui kegiatan amal (filantropi) dan pendampingan sosial bagi yang membutuhkan." }
     ]
   },
   {
     id: 'membangun-aksi',
-    title: 'Membangun Aksi',
+    title: 'Mendesain Aksi Sosial',
     category: 'Siklus',
     duration: '45m',
     icon: <Sparkles size={28} />,
     color: 'bg-slate-900',
-    content: 'Langkah-langkah mendesain kegiatan atau aksi untuk membangun harmoni sosial.',
-    tahapan: [
-      { title: "Perencanaan", content: "Identifikasi masalah melalui studi kepustakaan atau observasi." },
-      { title: "Pelaksanaan", content: "Realisasi koordinasi dan dokumentasi." }
+    content: 'Langkah sistematis untuk merancang aksi pembangunan harmoni sosial.',
+    steps: [
+      { phase: "Perencanaan", d: "Mengamati gejala sosial, identifikasi masalah (bullying, ketidakadilan), cari info, dan analisis SWOT." },
+      { phase: "Pelaksanaan", d: "Pembagian tugas, koordinasi yang jelas, perizinan, dan dokumentasi proses." },
+      { phase: "Evaluasi & Pelaporan", d: "Meninjau kesesuaian rencana, analisis tanggapan pesan, amati dampak, dan susun laporan." }
     ]
   }
 ];
@@ -358,16 +408,58 @@ export default function Materi() {
                         <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-blue-600 mb-6 md:mb-8 border-b-2 border-blue-100 pb-4 inline-block">Landasan Teori</h4>
                         <div className="space-y-8 md:space-y-12">
                            <p className="text-lg md:text-2xl font-black text-slate-900 leading-snug">{selectedMateri.theory}</p>
-                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                              {selectedMateri.indicators?.map((ind, i) => (
-                                 <div key={i} className="bg-white p-4 md:p-6 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm flex items-center gap-4 group hover:border-blue-600 transition-all">
-                                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                                       <Check size={16} md:size={20} />
-                                    </div>
-                                    <span className="font-bold text-sm md:text-base text-slate-700">{ind}</span>
+                           
+                           {selectedMateri.experts && (
+                             <div className="grid grid-cols-1 gap-6 mt-8">
+                               {(selectedMateri.experts as any[]).map((exp, i) => (
+                                 <div key={i} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                                   <div className="flex items-center gap-3 mb-4">
+                                      <Users size={16} className="text-blue-600" />
+                                      <span className="font-black text-sm uppercase tracking-widest text-slate-900">{exp.name}</span>
+                                   </div>
+                                   <p className="text-slate-500 font-medium italic">"{exp.opinion}"</p>
                                  </div>
-                              ))}
-                           </div>
+                               ))}
+                             </div>
+                           )}
+
+                           {selectedMateri.solidaritas && (
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                               {(selectedMateri.solidaritas as any[]).map((sol, i) => (
+                                 <div key={i} className="bg-slate-900 p-8 rounded-3xl text-white">
+                                   <h5 className="text-blue-400 font-black mb-2">{sol.t}</h5>
+                                   <p className="text-slate-400 text-sm">{sol.d}</p>
+                                 </div>
+                               ))}
+                             </div>
+                           )}
+
+                           {selectedMateri.indicators && (
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
+                                {(selectedMateri.indicators as any[]).map((ind, i) => (
+                                   <div key={i} className="bg-white p-4 md:p-6 rounded-2xl md:rounded-[2rem] border border-slate-100 shadow-sm flex items-center gap-4 group hover:border-blue-600 transition-all">
+                                      <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                         <Check size={16} md:size={20} />
+                                      </div>
+                                      <span className="font-bold text-sm md:text-base text-slate-700">{ind}</span>
+                                   </div>
+                                ))}
+                             </div>
+                           )}
+                        </div>
+                     </section>
+                   )}
+
+                   {selectedMateri.factors && (
+                     <section className="space-y-8">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-indigo-600">Faktor Pendorong Integrasi</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           {(selectedMateri.factors as any[]).map((f, i) => (
+                              <div key={i} className="p-6 bg-indigo-50 rounded-2xl border border-indigo-100 font-bold text-indigo-900 flex items-center gap-4">
+                                 <div className="w-8 h-8 rounded-full bg-indigo-200 flex items-center justify-center text-indigo-600 text-xs">{i+1}</div>
+                                 {f}
+                              </div>
+                           ))}
                         </div>
                      </section>
                    )}
@@ -384,26 +476,159 @@ export default function Materi() {
                      </div>
                    )}
 
-                   {selectedMateri.characteristics && (
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                         {(selectedMateri.characteristics as any[]).map((c: any, i: number) => (
-                           <div key={i} className="p-10 bg-slate-900 rounded-[3.5rem] text-white">
-                              <h5 className="text-xl font-black text-blue-400 mb-4">{c.t}</h5>
-                              <p className="text-sm font-medium text-slate-400 leading-relaxed">{c.d}</p>
+                   {selectedMateri.ways && (
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {(selectedMateri.ways as any[]).map((w: any, i: number) => (
+                          <div key={i} className="p-8 bg-slate-900 rounded-[3rem] text-white border-b-4 border-indigo-600">
+                             <h5 className="text-xl font-black mb-4 flex items-center gap-3">
+                                <RefreshCcw size={20} className="text-indigo-400" />
+                                {w.split('(')[0]}
+                             </h5>
+                             <p className="text-slate-400 text-sm">({w.split('(')[1]}</p>
+                          </div>
+                        ))}
+                     </div>
+                   )}
+
+                   {selectedMateri.forms && (
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {(selectedMateri.forms as any[]).map((f: any, i: number) => (
+                          <div key={i} className="p-8 bg-rose-50 rounded-[2.5rem] border border-rose-100">
+                             <h5 className="font-black text-rose-900 mb-2">{f.t}</h5>
+                             <p className="text-sm text-rose-700/70 leading-relaxed">{f.d}</p>
+                          </div>
+                        ))}
+                     </div>
+                   )}
+
+                   {selectedMateri.categories && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                         {(selectedMateri.categories as any[]).map((c: any, i: number) => (
+                           <div key={i} className="flex gap-6 items-start">
+                              <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black shrink-0">{i+1}</div>
+                              <div>
+                                 <h5 className="text-2xl font-black text-slate-900 mb-2">{c.t}</h5>
+                                 <p className="text-slate-500 font-medium leading-relaxed">{c.d}</p>
+                              </div>
                            </div>
                          ))}
                       </div>
                    )}
 
-                   {selectedMateri.tahapan && (
+                   {selectedMateri.law && (
+                      <div className="p-12 bg-slate-50 rounded-[3rem] border-2 border-slate-100">
+                        <div className="flex items-center gap-3 mb-8">
+                           <Gavel size={24} className="text-emerald-600" />
+                           <h4 className="font-black text-slate-900 uppercase tracking-widest">UUD 1945 Pasal 27</h4>
+                        </div>
+                        <div className="space-y-6">
+                           {(selectedMateri.law as any[]).map((l, i) => (
+                              <div key={i} className="flex gap-4">
+                                 <span className="font-black text-emerald-600 min-w-[80px]">{l.no}</span>
+                                 <p className="text-slate-600 font-bold italic">"{l.isi}"</p>
+                              </div>
+                           ))}
+                        </div>
+                      </div>
+                   )}
+
+                   {selectedMateri.concepts && (
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                         {(selectedMateri.concepts as any[]).map((c: any, i: number) => (
+                           <div key={i} className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                              <h5 className="font-black text-slate-900 mb-3">{c.t}</h5>
+                              <p className="text-xs text-slate-400 font-medium leading-relaxed">{c.d}</p>
+                           </div>
+                         ))}
+                      </div>
+                   )}
+
+                   {selectedMateri.mindset && (
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                         {(selectedMateri.mindset as any[]).map((m, i) => (
+                           <div key={i} className="p-6 bg-slate-900 rounded-3xl text-center flex flex-col items-center justify-center gap-3 group hover:bg-amber-500 transition-all">
+                              <ShieldCheck size={24} className="text-amber-400 group-hover:text-white" />
+                              <span className="text-[10px] font-black text-white uppercase tracking-widest leading-tight">{m}</span>
+                           </div>
+                         ))}
+                      </div>
+                   )}
+
+                   {selectedMateri.examples && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                         {(selectedMateri.examples as any[]).map((ex: any, i: number) => (
+                            <div key={i} className="flex gap-6 p-8 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm">
+                               <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                                  <Layout size={24} />
+                               </div>
+                               <div>
+                                  <h5 className="text-xl font-black text-slate-900 mb-1">{ex.t}</h5>
+                                  <p className="text-sm text-slate-400 font-medium leading-relaxed">{ex.d}</p>
+                               </div>
+                            </div>
+                         ))}
+                      </div>
+                   )}
+
+                   {selectedMateri.components && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                         {(selectedMateri.components as any[]).map((c: any, i: number) => (
+                           <div key={i} className="p-10 bg-teal-50 rounded-[3rem] border border-teal-100">
+                              <h5 className="text-xl font-black text-teal-900 mb-4">{c.label}</h5>
+                              <p className="text-sm text-teal-700 font-medium leading-relaxed">{c.desc}</p>
+                           </div>
+                         ))}
+                      </div>
+                   )}
+
+                   {selectedMateri.points && (
+                      <div className="space-y-4">
+                        {(selectedMateri.points as string[]).map((p, i) => (
+                           <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-slate-700 font-bold flex gap-4 items-center">
+                              <div className="w-2 h-2 rounded-full bg-cyan-500 shrink-0" />
+                              {p}
+                           </div>
+                        ))}
+                      </div>
+                   )}
+
+                   {selectedMateri.actions && (
+                      <div className="grid grid-cols-1 gap-6">
+                         {(selectedMateri.actions as any[]).map((a: any, i: number) => (
+                           <div key={i} className="p-10 bg-violet-50 rounded-[3rem] flex flex-col md:flex-row gap-8 items-start md:items-center">
+                              <div className="w-16 h-16 bg-violet-600 text-white rounded-3xl flex items-center justify-center text-2xl font-black shrink-0">{i+1}</div>
+                              <div>
+                                 <h5 className="text-2xl font-black text-violet-900 mb-2">{a.t}</h5>
+                                 <p className="text-violet-700 font-medium leading-relaxed">{a.d}</p>
+                              </div>
+                           </div>
+                         ))}
+                      </div>
+                   )}
+
+                   {selectedMateri.roles && (
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                         {(selectedMateri.roles as any[]).map((r: any, i: number) => (
+                           <div key={i} className="p-10 bg-slate-950 rounded-[3.5rem] flex flex-col">
+                              <div className="w-12 h-12 bg-orange-600 rounded-2xl mb-8 flex items-center justify-center text-white">
+                                 <Target size={24} />
+                              </div>
+                              <h5 className="text-xl font-black text-white mb-4">{r.t}</h5>
+                              <p className="text-xs text-slate-400 font-medium leading-relaxed border-l-2 border-orange-600 pl-4">{r.d}</p>
+                           </div>
+                         ))}
+                      </div>
+                   )}
+
+                   {selectedMateri.steps && (
                       <div className="space-y-12">
-                         {(selectedMateri.tahapan as any[]).map((t: any, i: number) => (
+                         {(selectedMateri.steps as any[]).map((s: any, i: number) => (
                            <div key={i} className="bg-slate-50 p-12 rounded-[4rem] border-2 border-slate-100 relative group overflow-hidden">
                               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/5 rounded-full -translate-y-1/2 translate-x-1/2" />
                               <div className="relative z-10">
                                  <h5 className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">Phase 0{i+1}</h5>
-                                 <h4 className="text-4xl font-black text-slate-900 mb-6">{t.title}</h4>
-                                 <p className="text-xl font-bold text-slate-500">{t.content}</p>
+                                 <h4 className="text-4xl font-black text-slate-900 mb-6">{s.phase}</h4>
+                                 <p className="text-xl font-bold text-slate-500">{s.d}</p>
                               </div>
                            </div>
                          ))}

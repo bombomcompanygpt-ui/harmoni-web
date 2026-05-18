@@ -251,8 +251,8 @@ export default function Discussion() {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-lg overflow-hidden border-2 border-white ${post.isAnonymous ? 'bg-slate-300' : 'bg-baby-blue'}`}>
-                    {post.isAnonymous ? <Users size={24} /> : <img src={post.authorAvatar} alt="avatar" className="w-full h-full object-cover" />}
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-lg overflow-hidden border-2 border-white ${post.isAnonymous ? 'bg-slate-50' : 'bg-baby-blue'}`}>
+                    <img src={post.authorAvatar} alt="avatar" className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h4 className="text-base font-black text-text-primary tracking-tight">{post.authorName}</h4>

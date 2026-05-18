@@ -56,15 +56,26 @@ export default function ShareYours() {
 
     setIsPosting(true);
     try {
-      // Note: In a real app, we would upload to Firebase Storage. 
-      // Here we use blob URLs for the current session demo or small assets.
-      // For persistence across sessions, real storage is needed.
-      const filesData: MediaFile[] = selectedFiles.map(file => ({
-        name: file.name,
-        type: file.type,
-        size: formatFileSize(file.size),
-        url: URL.createObjectURL(file) // temporary URL
-      }));
+      // Simulate "upload" by mapping selected files to public assets
+      // In a real app, these would be uploaded to Storage and return a URL.
+      // Here we pick from the available artwork-1.jpg to artwork-4.jpg in public/images
+      const filesData: MediaFile[] = selectedFiles.map((file, index) => {
+        const type = file.type;
+        let url = URL.createObjectURL(file); // Default fallback
+
+        if (type.startsWith('image/')) {
+          // Pick a random artwork from public/images
+          const randomNum = Math.floor(Math.random() * 4) + 1;
+          url = `/images/artwork-${randomNum}.jpg`;
+        }
+
+        return {
+          name: file.name,
+          type: type,
+          size: formatFileSize(file.size),
+          url: url
+        };
+      });
 
       await addDoc(collection(db, 'sharedWorks'), {
         authorId: profile.uid,
