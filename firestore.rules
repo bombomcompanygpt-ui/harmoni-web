@@ -61,7 +61,7 @@ service cloud.firestore {
                        isValidUser(incoming()) && (
                          isAdmin() ||
                          (incoming().role == existing().role && 
-                          incoming().diff(existing()).affectedKeys().hasOnly(['username', 'avatar', 'isOnline', 'currentRoomId', 'lastActive', 'email', 'coins', 'exp', 'level', 'ownedAvatars', 'lastRewardClaimed', 'loginStreak', 'completedChallenges', 'badges']))
+                          incoming().diff(existing()).affectedKeys().hasOnly(['username', 'avatar', 'isOnline', 'currentRoomId', 'lastActive', 'email', 'coins', 'exp', 'level', 'ownedAvatars', 'lastRewardClaimed', 'loginStreak', 'badges']))
                        );
     }
 

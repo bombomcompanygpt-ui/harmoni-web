@@ -17,7 +17,6 @@
         "exp": { "type": "number" },
         "level": { "type": "number" },
         "ownedAvatars": { "type": "array", "items": { "type": "string" } },
-        "completedChallenges": { "type": "array", "items": { "type": "string" } },
         "badges": { "type": "array", "items": { "type": "string" } },
         "lastRewardClaimed": { "type": "string", "format": "date-time" },
         "loginStreak": { "type": "number" }
