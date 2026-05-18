@@ -70,55 +70,12 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    match /chatRooms/{roomId} {
-      allow read: if isSignedIn();
-      allow write: if isAdmin();
-      
-      match /messages/{messageId} {
-        allow read: if isSignedIn();
-        allow create: if isSignedIn() && 
-                         incoming().senderId == request.auth.uid &&
-                         incoming().timestamp == request.time;
-        allow update: if isSignedIn() && (
-          isAdmin() ||
-          (isOwner(existing().senderId) && incoming().diff(existing()).affectedKeys().hasOnly(['text', 'type', 'mediaUrl'])) ||
-          (incoming().diff(existing()).affectedKeys().hasOnly(['favorites', 'isPinned']))
-        );
-        allow delete: if isSignedIn() && (isOwner(existing().senderId) || isAdmin());
-      }
-    }
-
     match /activities/{activityId} {
       allow read: if isAdmin();
       allow create: if isSignedIn() && 
                        isValidId(activityId) &&
                        incoming().userId == request.auth.uid &&
                        incoming().timestamp == request.time;
-    }
-
-    match /discussionPosts/{postId} {
-      allow read: if isSignedIn();
-      allow create: if isSignedIn() && 
-                       isValidId(postId) &&
-                       incoming().authorId == request.auth.uid &&
-                       incoming().timestamp == request.time &&
-                       incoming().votes == 0 &&
-                       incoming().replyCount == 0;
-      allow update: if isSignedIn() && (
-        isAdmin() ||
-        (isOwner(existing().authorId) && incoming().diff(existing()).affectedKeys().hasOnly(['content', 'category'])) ||
-        (incoming().diff(existing()).affectedKeys().hasOnly(['votes', 'votedBy']))
-      );
-      allow delete: if isSignedIn() && (isOwner(existing().authorId) || isAdmin());
-      
-      match /replies/{replyId} {
-        allow read: if isSignedIn();
-        allow create: if isSignedIn() &&
-                         isValidId(replyId) &&
-                         incoming().authorId == request.auth.uid &&
-                         incoming().timestamp == request.time;
-        allow delete: if isSignedIn() && (isOwner(existing().authorId) || isAdmin());
-      }
     }
 
     match /polls/{pollId} {
