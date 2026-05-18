@@ -32,14 +32,12 @@ import HomePage from './pages/Home';
 import DashboardPage from './pages/Dashboard';
 import MateriPage from './pages/Materi';
 import GamePage from './pages/Game';
-import DiscussionPage from './pages/Discussion';
 import QuizPage from './pages/Quiz';
 import MazeGamePage from './pages/MazeLabLGame';
 import StudyRoomPage from './pages/StudyRoom';
 import ShareYoursPage from './pages/ShareYours';
 import AvatarStorePage from './pages/AvatarStore';
 import AboutPage from './pages/About';
-import ChallengePage from './pages/Challenge';
 import EduCasePage from './pages/EduCase';
 import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
@@ -150,8 +148,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <NavItem to="/maze" icon={LayoutGrid} label="Maze Labirin" active={location.pathname === '/maze'} onClick={() => setSidebarOpen(false)} />
           <NavItem to="/study-room" icon={Users} label="Study Room" active={location.pathname === '/study-room'} onClick={() => setSidebarOpen(false)} />
           <NavItem to="/quiz" icon={Trophy} label="Quiz Battle" active={location.pathname === '/quiz'} onClick={() => setSidebarOpen(false)} />
-          <NavItem to="/discussion" icon={Users} label="Discussion Hub" active={location.pathname === '/discussion'} onClick={() => setSidebarOpen(false)} />
-          <NavItem to="/challenge" icon={CheckCircle} label="Harmoni Challenge" active={location.pathname === '/challenge'} onClick={() => setSidebarOpen(false)} />
           <NavItem to="/avatars" icon={Users} label="Avatar Store" active={location.pathname === '/avatars'} onClick={() => setSidebarOpen(false)} />
           <NavItem to="/share-yours" icon={Send} label="Share Yours" active={location.pathname === '/share-yours'} onClick={() => setSidebarOpen(false)} />
           {profile?.role === 'admin' && (
@@ -289,9 +285,7 @@ export default function App() {
                   <Route path="/quiz" element={<QuizPage />} />
                   <Route path="/avatars" element={<AvatarStorePage />} />
                   <Route path="/share-yours" element={<ShareYoursPage />} />
-                  <Route path="/challenge" element={<ChallengePage />} />
                   <Route path="/edu-case" element={<EduCasePage />} />
-                  <Route path="/discussion" element={<DiscussionPage />} />
                   <Route path="/about" element={<AboutPage />} />
                   
                   {/* Admin only Route */}
