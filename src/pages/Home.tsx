@@ -40,7 +40,6 @@ export default function Home() {
     { icon: LayoutDashboard, title: 'Dashboard', desc: 'Pantau progress belajar dan badge pencapaianmu.', color: 'bg-baby-blue', border: 'border-baby-blue', to: '/dashboard', private: true },
     { icon: BookOpen, title: 'Materi', desc: 'Belajar lewat infografis, animasi, dan slide mini.', color: 'bg-soft-pink', border: 'border-soft-pink', to: '/materi', private: false },
     { icon: Gamepad2, title: 'Story Game', desc: 'Tentukan pilihanmu dan lihat ending ceritanya.', color: 'bg-lilac', border: 'border-lilac', to: '/game', private: true },
-    { icon: Heart, title: 'Challenge', desc: 'Tantangan mingguan untuk aksi sosial nyata.', color: 'bg-sage', border: 'border-sage', to: '/challenge', private: true },
     { icon: Trophy, title: 'Leaderboard', desc: 'Uji kemampuanmu dan kumpulkan skor tertinggi.', color: 'bg-yellow-tint', border: 'border-sidebar-border', to: '/quiz', private: true },
     { icon: Info, title: 'About Us', desc: 'Kenali visi, misi, dan anggota kelompok kami.', color: 'bg-baby-blue', border: 'border-baby-blue', to: '/about', private: false },
   ];
