@@ -29,7 +29,6 @@ interface UserProfile {
   lastRewardClaimed?: any;
   loginStreak: number;
   badges: string[];
-  completedChallenges: string[];
 }
 
 interface ActivityData {
@@ -49,7 +48,6 @@ interface AuthContextType {
   logout: () => Promise<void>;
   loginWithGoogle: () => Promise<void>;
   logActivity: (data: ActivityData) => Promise<void>;
-  claimChallenge: (challengeId: string, reward: number, exp: number) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -214,7 +212,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             uid: cred.user.uid,
             username: 'Admin',
             email: email,
-            avatar: 'https://api.dicebear.com/7.x/bottts/svg?seed=Admin',
+            avatar: '/images/avatar-1.jpg',
             role: 'admin',
             isOnline: true,
             currentRoomId: null,
@@ -224,11 +222,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             level: 100,
             totalQuizScore: 10000,
             quizLevel: 50,
-            ownedAvatars: ['cat', 'dog', 'rabbit', 'panda'],
+            ownedAvatars: ['cat', 'dog', 'rabbit', 'panda', 'avatar-1', 'avatar-2', 'avatar-3'],
             loginStreak: 1,
             lastRewardClaimed: serverTimestamp(),
-            badges: ['Pioneer', 'SuperAdmin'],
-            completedChallenges: []
+            badges: ['Pioneer', 'SuperAdmin']
           };
           await setDoc(doc(db, 'users', cred.user.uid), newProfile);
           await setDoc(doc(db, 'admins', cred.user.uid), { uid: cred.user.uid });
@@ -264,7 +261,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         uid: cred.user.uid,
         username,
         email,
-        avatar: avatar || `https://api.dicebear.com/7.x/adventurer/svg?seed=${username}`,
+        avatar: avatar || '/images/avatar-2.jpg',
         role: 'user',
         isOnline: true,
         currentRoomId: null,
@@ -274,11 +271,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         level: 1,
         totalQuizScore: 0,
         quizLevel: 1,
-        ownedAvatars: ['cat', 'dog'], // Starting free avatars
+        ownedAvatars: ['cat', 'dog', 'avatar-1', 'avatar-2', 'avatar-3'], // Starting free avatars
         loginStreak: 1,
         lastRewardClaimed: serverTimestamp(),
-        badges: [],
-        completedChallenges: []
+        badges: []
       };
       await setDoc(doc(db, 'users', cred.user.uid), newProfile);
       setProfile(newProfile);
@@ -329,7 +325,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           uid: cred.user.uid,
           username: cred.user.displayName || 'User',
           email: cred.user.email || '',
-          avatar: cred.user.photoURL || `https://api.dicebear.com/7.x/adventurer/svg?seed=${cred.user.uid}`,
+          avatar: cred.user.photoURL || '/images/avatar-3.jpg',
           role: 'user',
           isOnline: true,
           currentRoomId: null,
@@ -339,11 +335,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           level: 1,
           totalQuizScore: 0,
           quizLevel: 1,
-          ownedAvatars: ['cat', 'dog'],
+          ownedAvatars: ['cat', 'dog', 'avatar-1', 'avatar-2', 'avatar-3'],
           loginStreak: 1,
           lastRewardClaimed: serverTimestamp(),
-          badges: [],
-          completedChallenges: []
+          badges: []
         };
         await setDoc(doc(db, 'users', cred.user.uid), newProfile);
         setProfile(newProfile);
